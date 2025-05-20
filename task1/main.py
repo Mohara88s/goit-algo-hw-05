@@ -34,9 +34,9 @@ class HashTable:
         if self.table[key_hash] is not None:
             for i, pair in enumerate(self.table[key_hash]):
                 if pair[0] == key:
-                    del self.table[key_hash][i]
+                    self.table[key_hash].pop(i)
                     if len(self.table[key_hash])==0:
-                        del self.table[key_hash]
+                        self.table.pop(key_hash)
                     return f'{key} deleted'
             return 'Не знайдено'
         else:
